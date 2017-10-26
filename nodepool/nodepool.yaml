@@ -33,7 +33,10 @@ labels:
 diskimages:
     - name: dpc
       elements:
+        - ubuntu
+        - vm
         - openstack-repos
+        - jenkins-slave
         - nodepool-base
         - cache-devstack
       release: trusty
@@ -45,16 +48,19 @@ providers:
   - name: local_01
 #TODO: Update the provider username, password, and authurl
     username: 'admin'
-    password: 'becdd9dd8f8a4ea2'
-    auth-url: 'http://os7controller1.hedviginc.com/dashboard/auth/login/'
+    password: '661bb83fc0a54164'
+    auth-url: 'http://172.22.45.39:5000'
     project-name: 'admin'
     max-servers: 2
+    networks: 
+      - name: 'private_network' 
     images:
       - name: dpc
         min-ram: 8192
         diskimage: dpc
-        username: jenkins
-        private-key: '/home/nodepool/.ssh/id_rsa'
+        username: zuul
+        private-key: /home/nodepool/.ssh/id_rsa
+       # key-name: key1
 
 targets:
   - name: jenkins1

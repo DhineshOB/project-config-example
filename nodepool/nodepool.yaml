@@ -39,7 +39,8 @@ diskimages:
         - jenkins-slave
         - nodepool-base
         - cache-devstack
-      release: trusty
+        - infra-package-needs
+      release: xenial
       env-vars:
         TMPDIR: /opt/dib_tmp
         DIB_IMAGE_CACHE: /opt/dib_cache
@@ -49,7 +50,7 @@ providers:
 #TODO: Update the provider username, password, and authurl
     username: 'admin'
     password: '661bb83fc0a54164'
-    auth-url: 'http://172.22.45.39:5000'
+    auth-url: 'http://osc7n1.hedviginc.com:5000'
     project-name: 'admin'
     max-servers: 2
     networks: 

@@ -20,5 +20,15 @@ fi
 set -eu
 set -o pipefail
 
+sudo apt-get -y install build-essential
+sudo apt-get -y install g++
+git clone https://code.googlesource.com/re2
+cd re2
+make
+make test
+make install
+make testinstall
+
 virtualenv /usr/zuul-env
+
 /usr/zuul-env/bin/pip install git+https://git.openstack.org/openstack-infra/zuul.git
